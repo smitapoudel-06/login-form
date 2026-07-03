@@ -1,0 +1,94 @@
+/* ============================================================
+   DESIGN TOKENS — Color Palette, Typography, Spacing, Effects
+   ============================================================ */
+:root {
+  /* ── Background layers ── */
+  --bg-deep:        #06060f;
+  --bg-base:        #0c0c1d;
+  --bg-surface:     #13132b;
+  --bg-elevated:    #1a1a3e;
+
+  /* ── Glass effect ── */
+  --glass-bg:       rgba(255, 255, 255, 0.04);
+  --glass-border:   rgba(255, 255, 255, 0.08);
+  --glass-blur:     20px;
+
+  /* ── Brand gradient ── */
+  --gradient-brand:  linear-gradient(135deg, #7c6aff 0%, #38c9bf 100%);
+  --gradient-brand-hover: linear-gradient(135deg, #6b57ff 0%, #2ebfb4 100%);
+  --gradient-warm:   linear-gradient(135deg, #ff6b6b 0%, #ffd93d 100%);
+  --gradient-cool:   linear-gradient(135deg, #38c9bf 0%, #6c63ff 100%);
+  --gradient-subtle: linear-gradient(135deg, rgba(124,106,255,0.15) 0%, rgba(56,201,191,0.15) 100%);
+
+  /* ── Accent colors ── */
+  --accent-primary:   #7c6aff;
+  --accent-secondary: #38c9bf;
+  --accent-primary-dim: rgba(124, 106, 255, 0.15);
+  --accent-secondary-dim: rgba(56, 201, 191, 0.15);
+
+  /* ── Semantic colors ── */
+  --color-success:  #38c9bf;
+  --color-error:    #ff6b6b;
+  --color-warning:  #ffd93d;
+  --color-info:     #6c9fff;
+
+  /* ── Text hierarchy ── */
+  --text-primary:   #eaeaff;
+  --text-secondary: #9595b8;
+  --text-muted:     #5e5e80;
+  --text-inverse:   #06060f;
+
+  /* ── Borders ── */
+  --border-subtle:  rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.10);
+  --border-accent:  rgba(124, 106, 255, 0.30);
+
+  /* ── Shadows ── */
+  --shadow-sm:   0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md:   0 4px 20px rgba(0, 0, 0, 0.35);
+  --shadow-lg:   0 8px 40px rgba(0, 0, 0, 0.45);
+  --shadow-glow: 0 0 30px rgba(124, 106, 255, 0.15);
+
+  /* ── Typography ── */
+  --font-family:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-xs:   0.75rem;
+  --font-sm:   0.8125rem;
+  --font-base: 0.9375rem;
+  --font-md:   1.0625rem;
+  --font-lg:   1.25rem;
+  --font-xl:   1.5rem;
+  --font-2xl:  2rem;
+  --font-3xl:  2.5rem;
+
+  /* ── Spacing scale ── */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* ── Radii ── */
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-full: 9999px;
+
+  /* ── Transitions ── */
+  --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:   cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast:   150ms;
+  --duration-normal: 250ms;
+  --duration-slow:   400ms;
+
+  /* ── Layout ── */
+  --navbar-height: 64px;
+  --sidebar-width: 260px;
+  --max-width:     1200px;
+}
