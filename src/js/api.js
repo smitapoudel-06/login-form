@@ -119,3 +119,53 @@ export async function getStaffProfile() {
 export async function getCustomerProfile() {
   return request('/api/customer/profile');
 }
+
+/* ── OmniTrade Endpoints ── */
+
+// Products
+export async function getProducts() {
+  return request('/api/products');
+}
+
+export async function addProduct(product) {
+  return request('/api/products', {
+    method: 'POST',
+    body: JSON.stringify(product),
+  });
+}
+
+export async function updateProduct(id, product) {
+  return request(`/api/products/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(product),
+  });
+}
+
+export async function deleteProduct(id) {
+  return request(`/api/products/${id}`, {
+    method: 'DELETE',
+  });
+}
+
+// Orders
+export async function placeOrder(requestData) {
+  return request('/api/orders', {
+    method: 'POST',
+    body: JSON.stringify(requestData),
+  });
+}
+
+export async function getOrders() {
+  return request('/api/orders');
+}
+
+export async function getMyOrders() {
+  return request('/api/orders/my-orders');
+}
+
+export async function updateOrderStatus(id, status) {
+  return request(`/api/orders/${id}/status`, {
+    method: 'PUT',
+    body: JSON.stringify({ status }),
+  });
+}
