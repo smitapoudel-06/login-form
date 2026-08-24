@@ -1,37 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Login System — A modern authentication dashboard with role-based access for Admin, Staff, and Customer users." />
-  <title>Login System — Authentication Dashboard</title>
-
-  <!-- Google Fonts: Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <!-- Lucide Icons CDN -->
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="/src/css/variables.css" />
-  <link rel="stylesheet" href="/src/css/base.css" />
-  <link rel="stylesheet" href="/src/css/animations.css" />
-  <link rel="stylesheet" href="/src/css/components.css" />
-  <link rel="stylesheet" href="/src/css/pages.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Web Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Toast container -->
-  <div id="toast-container"></div>
+    <header class="navbar">
+        <div class="logo">Brand.</div>
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="nav-actions">
+            <button id="theme-toggle" aria-label="Toggle Theme">
+                <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg id="sun-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
 
-  <!-- Modal overlay -->
-  <div id="modal-overlay"></div>
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Elevate Your Digital Presence</h1>
+                <p>We build beautiful, responsive, and blazing-fast web experiences tailored to your needs. Stand out in the modern web.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                    <a href="#projects" class="btn btn-secondary">View Work</a>
+                </div>
+            </div>
+        </section>
 
-  <!-- Main app mount point -->
-  <div id="app"></div>
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Us</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Who We Are</h3>
+                        <p>We are a team of passionate developers and designers dedicated to crafting exceptional digital products. With years of experience in the industry, we bring ideas to life with modern technologies and stunning aesthetics. We believe in writing clean code, intuitive designs, and responsive layouts that work perfectly on every device.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- App entry -->
-  <script type="module" src="/src/js/main.js"></script>
+        <section id="services" class="services">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="icon">💻</div>
+                        <h3>Web Development</h3>
+                        <p>Custom, responsive websites built with the latest technologies to ensure maximum performance and accessibility.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon">🎨</div>
+                        <h3>UI/UX Design</h3>
+                        <p>Intuitive and engaging user interfaces that delight users and drive conversions with modern aesthetics.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon">🚀</div>
+                        <h3>Performance Optimization</h3>
+                        <p>Lightning-fast load times and smooth interactions that keep your audience engaged without dropped frames.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2>Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-img placeholder-1"></div>
+                        <div class="project-info">
+                            <h3>E-Commerce Platform</h3>
+                            <p>A modern online store with seamless checkout experience and dynamic product filtering.</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img placeholder-2"></div>
+                        <div class="project-info">
+                            <h3>Portfolio Agency</h3>
+                            <p>A sleek, interactive portfolio designed specifically for a cutting-edge creative agency.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <form id="contact-form" class="contact-form" novalidate>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required placeholder="John Doe">
+                        <span class="error-message" id="name-error">Please enter your name.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        <span class="error-message" id="email-error">Please enter a valid email address.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="How can we help you?"></textarea>
+                        <span class="error-message" id="message-error">Please enter your message.</span>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    <div id="form-success" class="form-success hidden">Thank you! Your message has been sent successfully.</div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="brand-footer">Brand.</div>
+            <p>&copy; 2026 Modern Web. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
