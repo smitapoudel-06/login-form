@@ -1,137 +1,680 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Web Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+```
+<title>Smita Poudel | Frontend Developer</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+```
+
 </head>
+
 <body>
-    <header class="navbar">
-        <div class="logo">Brand.</div>
-        <nav class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
-        <div class="nav-actions">
-            <button id="theme-toggle" aria-label="Toggle Theme">
-                <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                <svg id="sun-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+```
+<div class="logo">
+    <span>&lt;</span>Smita<span>/&gt;</span>
+</div>
+
+<nav class="nav-links" id="nav-links">
+    <a href="#home" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<div class="nav-actions">
+
+    <button id="theme-toggle" aria-label="Toggle Theme">
+        <i class="fa-solid fa-moon" id="moon-icon"></i>
+        <i class="fa-solid fa-sun hidden" id="sun-icon"></i>
+    </button>
+
+    <button class="hamburger" id="hamburger" aria-label="Open Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+</div>
+```
+
+</header>
+
+<main>
+
+<!-- ================= HERO ================= -->
+
+<section id="home" class="hero">
+
+```
+<div class="hero-content">
+
+    <p class="hero-greeting">
+        👋 Hello, I'm
+    </p>
+
+    <h1>
+        Smita <span>Poudel</span>
+    </h1>
+
+    <h2>
+        Frontend Developer &amp; IT Student
+    </h2>
+
+    <p class="hero-description">
+        I create modern, responsive and user-friendly websites
+        using HTML, CSS, JavaScript and React. I enjoy turning
+        ideas into clean and interactive digital experiences.
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="#projects" class="btn btn-primary">
+            <i class="fa-solid fa-code"></i>
+            View My Work
+        </a>
+
+        <a href="#contact" class="btn btn-secondary">
+            <i class="fa-regular fa-envelope"></i>
+            Contact Me
+        </a>
+
+    </div>
+
+    <div class="social-links">
+
+        <a href="#" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="#" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+
+        <a href="#" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+
+    </div>
+
+</div>
+
+
+<div class="hero-image">
+
+    <div class="profile-card">
+
+        <div class="profile-circle">
+            <i class="fa-solid fa-user"></i>
+        </div>
+
+        <div class="code-card">
+            <span>&lt;developer&gt;</span>
+            <span>creative();</span>
+            <span>build();</span>
+            <span>learn();</span>
+            <span>&lt;/developer&gt;</span>
+        </div>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about" class="section about">
+
+```
+<div class="container">
+
+    <div class="section-heading">
+
+        <p>GET TO KNOW ME</p>
+
+        <h2>About <span>Me</span></h2>
+
+    </div>
+
+    <div class="about-content">
+
+        <div class="about-text">
+
+            <h3>
+                Passionate about building meaningful
+                digital experiences.
+            </h3>
+
+            <p>
+                I am an IT student with a strong interest in
+                frontend development and modern web technologies.
+                I enjoy learning new technologies and applying
+                them to real-world projects.
+            </p>
+
+            <p>
+                My goal is to become a skilled full-stack developer
+                while continuously improving my problem-solving,
+                design and development skills.
+            </p>
+
+            <a href="#contact" class="text-link">
+                Let's work together
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <div class="about-stats">
+
+            <div class="stat-card">
+                <i class="fa-solid fa-code"></i>
+                <h3>10+</h3>
+                <p>Projects</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fa-solid fa-laptop-code"></i>
+                <h3>1+</h3>
+                <p>Year Learning</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fa-solid fa-layer-group"></i>
+                <h3>8+</h3>
+                <p>Technologies</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- ================= SKILLS ================= -->
+
+<section id="skills" class="section skills">
+
+```
+<div class="container">
+
+    <div class="section-heading">
+
+        <p>WHAT I WORK WITH</p>
+
+        <h2>My <span>Skills</span></h2>
+
+    </div>
+
+
+    <div class="skills-grid">
+
+        <div class="skill-card">
+            <i class="fa-brands fa-html5"></i>
+            <h3>HTML5</h3>
+            <p>Semantic &amp; accessible web structure</p>
+        </div>
+
+        <div class="skill-card">
+            <i class="fa-brands fa-css3-alt"></i>
+            <h3>CSS3</h3>
+            <p>Responsive and modern UI design</p>
+        </div>
+
+        <div class="skill-card">
+            <i class="fa-brands fa-js"></i>
+            <h3>JavaScript</h3>
+            <p>Interactive web functionality</p>
+        </div>
+
+        <div class="skill-card">
+            <i class="fa-brands fa-react"></i>
+            <h3>React</h3>
+            <p>Component-based frontend development</p>
+        </div>
+
+        <div class="skill-card">
+            <i class="fa-brands fa-git-alt"></i>
+            <h3>Git</h3>
+            <p>Version control and collaboration</p>
+        </div>
+
+        <div class="skill-card">
+            <i class="fa-brands fa-github"></i>
+            <h3>GitHub</h3>
+            <p>Code hosting and project management</p>
+        </div>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- ================= PROJECTS ================= -->
+
+<section id="projects" class="section projects">
+
+```
+<div class="container">
+
+    <div class="section-heading">
+
+        <p>MY RECENT WORK</p>
+
+        <h2>Featured <span>Projects</span></h2>
+
+    </div>
+
+
+    <div class="projects-grid">
+
+
+        <article class="project-card">
+
+            <div class="project-image project-one">
+
+                <div class="project-icon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+
+            </div>
+
+            <div class="project-info">
+
+                <span class="project-number">01</span>
+
+                <h3>E-Commerce Platform</h3>
+
+                <p>
+                    A modern online shopping platform with
+                    product browsing, filtering and user-friendly
+                    interface.
+                </p>
+
+                <div class="tech-stack">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+
+                <a href="#" class="project-link">
+                    View Project
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="project-card">
+
+            <div class="project-image project-two">
+
+                <div class="project-icon">
+                    <i class="fa-solid fa-futbol"></i>
+                </div>
+
+            </div>
+
+            <div class="project-info">
+
+                <span class="project-number">02</span>
+
+                <h3>Futsal Booking System</h3>
+
+                <p>
+                    A booking platform that allows users to
+                    view futsal grounds, select time slots and
+                    manage bookings.
+                </p>
+
+                <div class="tech-stack">
+                    <span>React</span>
+                    <span>Django</span>
+                    <span>Tailwind</span>
+                </div>
+
+                <a href="#" class="project-link">
+                    View Project
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="project-card">
+
+            <div class="project-image project-three">
+
+                <div class="project-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+
+            </div>
+
+            <div class="project-info">
+
+                <span class="project-number">03</span>
+
+                <h3>Student Learning Platform</h3>
+
+                <p>
+                    A responsive learning platform designed
+                    to help students explore courses and
+                    educational resources.
+                </p>
+
+                <div class="tech-stack">
+                    <span>React</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+
+                <a href="#" class="project-link">
+                    View Project
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+
+<section id="experience" class="section experience">
+
+```
+<div class="container">
+
+    <div class="section-heading">
+
+        <p>MY JOURNEY</p>
+
+        <h2>Experience &amp; <span>Learning</span></h2>
+
+    </div>
+
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content">
+
+                <span>2026</span>
+
+                <h3>Frontend Developer Intern</h3>
+
+                <h4>Technology Company</h4>
+
+                <p>
+                    Working on responsive web interfaces,
+                    React components and modern frontend
+                    development practices.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content">
+
+                <span>2025 - Present</span>
+
+                <h3>BIT Student</h3>
+
+                <h4>Information Technology</h4>
+
+                <p>
+                    Developing knowledge in programming,
+                    databases, web development, software
+                    engineering and modern technologies.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" class="section contact">
+
+```
+<div class="container">
+
+    <div class="section-heading">
+
+        <p>HAVE A PROJECT IN MIND?</p>
+
+        <h2>Let's <span>Connect</span></h2>
+
+    </div>
+
+
+    <div class="contact-wrapper">
+
+
+        <div class="contact-info">
+
+            <h3>Let's talk!</h3>
+
+            <p>
+                Whether you have a project idea, internship
+                opportunity or simply want to connect,
+                feel free to send me a message.
+            </p>
+
+
+            <div class="contact-item">
+
+                <i class="fa-regular fa-envelope"></i>
+
+                <div>
+                    <span>Email</span>
+                    <p>your.email@example.com</p>
+                </div>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <div>
+                    <span>Location</span>
+                    <p>Nepal</p>
+                </div>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <i class="fa-solid fa-code"></i>
+
+                <div>
+                    <span>Available For</span>
+                    <p>Projects &amp; Opportunities</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <form id="contact-form" class="contact-form" novalidate>
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="name">Your Name</label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                    <span class="error-message" id="name-error">
+                        Please enter your name.
+                    </span>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">Your Email</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                    <span class="error-message" id="email-error">
+                        Please enter a valid email.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="message">Your Message</label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    placeholder="Tell me about your project..."
+                    required
+                ></textarea>
+
+                <span class="error-message" id="message-error">
+                    Please enter your message.
+                </span>
+
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">
+
+                Send Message
+
+                <i class="fa-solid fa-paper-plane"></i>
+
             </button>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+
+
+            <div id="form-success" class="form-success hidden">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Thank you! Your message has been sent successfully.
+
             </div>
-        </div>
-    </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1>Elevate Your Digital Presence</h1>
-                <p>We build beautiful, responsive, and blazing-fast web experiences tailored to your needs. Stand out in the modern web.</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Get Started</a>
-                    <a href="#projects" class="btn btn-secondary">View Work</a>
-                </div>
-            </div>
-        </section>
+        </form>
 
-        <section id="about" class="about">
-            <div class="container">
-                <h2>About Us</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <h3>Who We Are</h3>
-                        <p>We are a team of passionate developers and designers dedicated to crafting exceptional digital products. With years of experience in the industry, we bring ideas to life with modern technologies and stunning aesthetics. We believe in writing clean code, intuitive designs, and responsive layouts that work perfectly on every device.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    </div>
 
-        <section id="services" class="services">
-            <div class="container">
-                <h2>Our Services</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="icon">💻</div>
-                        <h3>Web Development</h3>
-                        <p>Custom, responsive websites built with the latest technologies to ensure maximum performance and accessibility.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="icon">🎨</div>
-                        <h3>UI/UX Design</h3>
-                        <p>Intuitive and engaging user interfaces that delight users and drive conversions with modern aesthetics.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="icon">🚀</div>
-                        <h3>Performance Optimization</h3>
-                        <p>Lightning-fast load times and smooth interactions that keep your audience engaged without dropped frames.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+</div>
+```
 
-        <section id="projects" class="projects">
-            <div class="container">
-                <h2>Featured Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-img placeholder-1"></div>
-                        <div class="project-info">
-                            <h3>E-Commerce Platform</h3>
-                            <p>A modern online store with seamless checkout experience and dynamic product filtering.</p>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-img placeholder-2"></div>
-                        <div class="project-info">
-                            <h3>Portfolio Agency</h3>
-                            <p>A sleek, interactive portfolio designed specifically for a cutting-edge creative agency.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+</section>
 
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2>Get In Touch</h2>
-                <form id="contact-form" class="contact-form" novalidate>
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required placeholder="John Doe">
-                        <span class="error-message" id="name-error">Please enter your name.</span>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="john@example.com">
-                        <span class="error-message" id="email-error">Please enter a valid email address.</span>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required placeholder="How can we help you?"></textarea>
-                        <span class="error-message" id="message-error">Please enter your message.</span>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">Send Message</button>
-                    <div id="form-success" class="form-success hidden">Thank you! Your message has been sent successfully.</div>
-                </form>
-            </div>
-        </section>
-    </main>
+</main>
 
-    <footer>
-        <div class="container footer-content">
-            <div class="brand-footer">Brand.</div>
-            <p>&copy; 2026 Modern Web. All rights reserved.</p>
-        </div>
-    </footer>
+<!-- ================= FOOTER ================= -->
 
-    <script src="script.js"></script>
+<footer>
+
+```
+<div class="container footer-content">
+
+    <div class="logo">
+        <span>&lt;</span>Smita<span>/&gt;</span>
+    </div>
+
+    <p>
+        © 2026 Smita Poudel. Built with ❤️ and code.
+    </p>
+
+    <div class="footer-social">
+
+        <a href="#">
+            <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="#">
+            <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+
+    </div>
+
+</div>
+```
+
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
