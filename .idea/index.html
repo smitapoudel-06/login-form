@@ -1,3 +1,10 @@
+Absolutely 😄 तल **तपाईंको CSS नै rearrange गरेको पूरा code** हो। कुनै design/functionality change गरेको छैन—सिर्फ clean order मा मिलाएको छु।
+
+```css
+/* =========================================================
+   1. ROOT VARIABLES / THEME
+========================================================= */
+
 :root {
     --primary-color: #6366f1;
     --primary-hover: #4f46e5;
@@ -26,6 +33,11 @@
     --transition: all 0.3s ease;
 }
 
+
+/* =========================
+   DARK THEME
+========================= */
+
 [data-theme="dark"] {
     --primary-color: #818cf8;
     --primary-hover: #a5b4fc;
@@ -46,9 +58,9 @@
 }
 
 
-/* =========================
-   RESET
-========================= */
+/* =========================================================
+   2. RESET & BASE STYLES
+========================================================= */
 
 * {
     margin: 0;
@@ -66,6 +78,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
+
     transition:
         background-color 0.3s ease,
         color 0.3s ease;
@@ -93,21 +106,23 @@ img {
 }
 
 
-/* =========================
-   CONTAINER
-========================= */
+/* =========================================================
+   3. CONTAINER
+========================================================= */
 
 .container {
     width: 100%;
     max-width: 1200px;
+
     margin: 0 auto;
+
     padding: 0 2rem;
 }
 
 
-/* =========================
-   TYPOGRAPHY
-========================= */
+/* =========================================================
+   4. TYPOGRAPHY
+========================================================= */
 
 h1,
 h2,
@@ -118,7 +133,9 @@ h3 {
 h1 {
     font-size: clamp(2.8rem, 6vw, 5rem);
     font-weight: 800;
+
     letter-spacing: -2px;
+
     margin-bottom: 1.5rem;
 
     background: linear-gradient(
@@ -135,26 +152,31 @@ h1 {
 h2 {
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
+
     text-align: center;
+
     letter-spacing: -1px;
+
     margin-bottom: 3.5rem;
 }
 
 h3 {
     font-size: 1.4rem;
-    margin-bottom: 0.8rem;
     font-weight: 700;
+
+    margin-bottom: 0.8rem;
 }
 
 
-/* =========================
-   BUTTONS
-========================= */
+/* =========================================================
+   5. BUTTONS & UTILITIES
+========================================================= */
 
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     gap: 0.5rem;
 
     padding: 0.9rem 1.8rem;
@@ -197,6 +219,7 @@ h3 {
 
 .btn-secondary {
     background-color: transparent;
+
     color: var(--text-color);
 
     border: 1.5px solid var(--border-color);
@@ -204,6 +227,7 @@ h3 {
 
 .btn-secondary:hover {
     color: var(--primary-color);
+
     border-color: var(--primary-color);
 
     background-color: rgba(99, 102, 241, 0.05);
@@ -215,10 +239,14 @@ h3 {
     width: 100%;
 }
 
+.hidden {
+    display: none !important;
+}
 
-/* =========================
-   NAVBAR
-========================= */
+
+/* =========================================================
+   6. NAVBAR
+========================================================= */
 
 .navbar {
     position: fixed;
@@ -247,6 +275,11 @@ h3 {
     transition: var(--transition);
 }
 
+
+/* =========================
+   LOGO
+========================= */
+
 .logo {
     font-size: 1.7rem;
     font-weight: 800;
@@ -262,6 +295,11 @@ h3 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+
+/* =========================
+   NAV LINKS
+========================= */
 
 .nav-links {
     display: flex;
@@ -313,6 +351,11 @@ h3 {
     width: 100%;
 }
 
+
+/* =========================
+   NAV ACTIONS
+========================= */
+
 .nav-actions {
     display: flex;
     align-items: center;
@@ -321,9 +364,9 @@ h3 {
 }
 
 
-/* =========================
-   THEME BUTTON
-========================= */
+/* =========================================================
+   7. THEME TOGGLE
+========================================================= */
 
 #theme-toggle {
     width: 42px;
@@ -356,14 +399,10 @@ h3 {
     transform: rotate(15deg);
 }
 
-.hidden {
-    display: none !important;
-}
 
-
-/* =========================
-   HAMBURGER
-========================= */
+/* =========================================================
+   8. HAMBURGER MENU
+========================================================= */
 
 .hamburger {
     display: none;
@@ -396,6 +435,7 @@ h3 {
 
 .hamburger.active span:nth-child(2) {
     opacity: 0;
+
     transform: translateX(10px);
 }
 
@@ -404,9 +444,9 @@ h3 {
 }
 
 
-/* =========================
-   COMMON SECTIONS
-========================= */
+/* =========================================================
+   9. COMMON SECTIONS
+========================================================= */
 
 section {
     padding: 7rem 0;
@@ -417,9 +457,9 @@ section:nth-of-type(even) {
 }
 
 
-/* =========================
-   HERO
-========================= */
+/* =========================================================
+   10. HERO SECTION
+========================================================= */
 
 .hero {
     min-height: 100vh;
@@ -433,6 +473,7 @@ section:nth-of-type(even) {
     padding-top: 100px;
 
     position: relative;
+
     overflow: hidden;
 
     background:
@@ -489,12 +530,18 @@ section:nth-of-type(even) {
     pointer-events: none;
 }
 
+
+/* =========================
+   HERO CONTENT
+========================= */
+
 .hero-content {
     max-width: 850px;
 
     padding: 0 1rem;
 
     position: relative;
+
     z-index: 1;
 }
 
@@ -519,9 +566,9 @@ section:nth-of-type(even) {
 }
 
 
-/* =========================
-   SERVICES
-========================= */
+/* =========================================================
+   11. SERVICES
+========================================================= */
 
 .services-grid {
     display: grid;
@@ -591,6 +638,11 @@ section:nth-of-type(even) {
     transform: scaleX(1);
 }
 
+
+/* =========================
+   SERVICE ICON
+========================= */
+
 .service-card .icon {
     width: 75px;
     height: 75px;
@@ -621,13 +673,14 @@ section:nth-of-type(even) {
 
 .service-card p {
     color: var(--text-secondary);
+
     font-size: 0.95rem;
 }
 
 
-/* =========================
-   PROJECTS
-========================= */
+/* =========================================================
+   12. PROJECTS
+========================================================= */
 
 .projects-grid {
     display: grid;
@@ -660,9 +713,14 @@ section:nth-of-type(even) {
     box-shadow: var(--shadow-lg);
 }
 
+
+/* =========================
+   PROJECT IMAGE
+========================= */
+
 .project-img {
-    height: 230px;
     width: 100%;
+    height: 230px;
 
     background-size: cover;
     background-position: center;
@@ -675,6 +733,11 @@ section:nth-of-type(even) {
 .project-card:hover .project-img {
     transform: scale(1.04);
 }
+
+
+/* =========================
+   PROJECT PLACEHOLDERS
+========================= */
 
 .placeholder-1 {
     background:
@@ -694,6 +757,11 @@ section:nth-of-type(even) {
         );
 }
 
+
+/* =========================
+   PROJECT INFO
+========================= */
+
 .project-info {
     padding: 1.8rem;
 }
@@ -711,9 +779,9 @@ section:nth-of-type(even) {
 }
 
 
-/* =========================
-   CONTACT
-========================= */
+/* =========================================================
+   13. CONTACT
+========================================================= */
 
 .contact-form {
     width: 100%;
@@ -732,6 +800,11 @@ section:nth-of-type(even) {
     box-shadow: var(--shadow-md);
 }
 
+
+/* =========================
+   FORM GROUP
+========================= */
+
 .form-group {
     margin-bottom: 1.5rem;
 }
@@ -747,6 +820,11 @@ section:nth-of-type(even) {
 
     font-weight: 600;
 }
+
+
+/* =========================
+   INPUT & TEXTAREA
+========================= */
 
 .form-group input,
 .form-group textarea {
@@ -783,6 +861,11 @@ section:nth-of-type(even) {
     color: var(--text-secondary);
 }
 
+
+/* =========================
+   FORM FOCUS
+========================= */
+
 .form-group input:focus,
 .form-group textarea:focus {
     border-color: var(--primary-color);
@@ -792,6 +875,11 @@ section:nth-of-type(even) {
     box-shadow:
         0 0 0 4px rgba(99, 102, 241, 0.12);
 }
+
+
+/* =========================
+   FORM ERROR
+========================= */
 
 .error-message {
     display: none;
@@ -814,6 +902,11 @@ section:nth-of-type(even) {
     display: block;
 }
 
+
+/* =========================
+   FORM SUCCESS
+========================= */
+
 .form-success {
     margin-top: 1.5rem;
 
@@ -833,9 +926,9 @@ section:nth-of-type(even) {
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+/* =========================================================
+   14. FOOTER
+========================================================= */
 
 footer {
     padding: 3rem 0;
@@ -870,9 +963,9 @@ footer {
 }
 
 
-/* =========================
-   SCROLLBAR
-========================= */
+/* =========================================================
+   15. SCROLLBAR
+========================================================= */
 
 ::-webkit-scrollbar {
     width: 9px;
@@ -892,9 +985,20 @@ footer {
 }
 
 
-/* =========================
-   RESPONSIVE TABLET
-========================= */
+/* =========================================================
+   16. ACCESSIBILITY
+========================================================= */
+
+:focus-visible {
+    outline: 3px solid rgba(99, 102, 241, 0.35);
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   17. RESPONSIVE - TABLET
+========================================================= */
 
 @media (max-width: 900px) {
 
@@ -917,23 +1021,30 @@ footer {
 }
 
 
-/* =========================
-   RESPONSIVE MOBILE
-========================= */
+/* =========================================================
+   18. RESPONSIVE - MOBILE
+========================================================= */
 
 @media (max-width: 768px) {
+
+    /* Container */
 
     .container {
         padding: 0 1.25rem;
     }
 
+
+    /* Typography */
+
     h1 {
         font-size: 2.8rem;
+
         letter-spacing: -1.5px;
     }
 
     h2 {
         font-size: 2.1rem;
+
         margin-bottom: 2.5rem;
     }
 
@@ -1066,9 +1177,9 @@ footer {
 }
 
 
-/* =========================
-   SMALL MOBILE
-========================= */
+/* =========================================================
+   19. RESPONSIVE - SMALL MOBILE
+========================================================= */
 
 @media (max-width: 480px) {
 
@@ -1135,20 +1246,9 @@ footer {
 }
 
 
-/* =========================
-   ACCESSIBILITY
-========================= */
-
-:focus-visible {
-    outline: 3px solid rgba(99, 102, 241, 0.35);
-
-    outline-offset: 3px;
-}
-
-
-/* =========================
-   REDUCED MOTION
-========================= */
+/* =========================================================
+   20. REDUCED MOTION
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -1164,3 +1264,4 @@ footer {
         animation-iteration-count: 1 !important;
     }
 }
+```
