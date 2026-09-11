@@ -1,680 +1,1758 @@
+```html
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>Smita Poudel | Frontend Developer</title>
+    <title>Smita Poudel | Frontend Developer</title>
 
-<link rel="stylesheet" href="style.css">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
 
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-```
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg: #0b0d12;
+            --bg-light: #11141b;
+            --card: #151922;
+            --primary: #7c5cff;
+            --secondary: #9d88ff;
+            --text: #ffffff;
+            --muted: #a8afbd;
+            --border: rgba(255,255,255,0.08);
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 6%;
+
+            background: rgba(11,13,18,0.88);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        #theme-toggle,
+        .hamburger {
+            border: none;
+            background: var(--card);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .hamburger {
+            display: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 50px;
+
+            padding: 140px 6% 80px;
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(124,92,255,0.18),
+                    transparent 35%
+                );
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-greeting {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 7vw, 78px);
+            line-height: 1.05;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero h2 {
+            font-size: clamp(20px, 3vw, 30px);
+            color: #d7dbe5;
+            margin-bottom: 20px;
+        }
+
+        .hero-description {
+            color: var(--muted);
+            max-width: 650px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            padding: 13px 22px;
+            border-radius: 10px;
+
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(124,92,255,0.3);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .social-links a {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid var(--border);
+            border-radius: 10px;
+
+            color: var(--muted);
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: white;
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           HERO CARD
+        ========================= */
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-card {
+            width: 320px;
+            height: 360px;
+
+            border: 1px solid var(--border);
+            background: linear-gradient(
+                145deg,
+                #171b25,
+                #0f1117
+            );
+
+            border-radius: 25px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+        }
+
+        .profile-circle {
+            width: 150px;
+            height: 150px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--secondary)
+            );
+
+            font-size: 65px;
+
+            margin-bottom: 30px;
+        }
+
+        .code-card {
+            background: #090b0f;
+            border: 1px solid var(--border);
+
+            padding: 18px 25px;
+            border-radius: 12px;
+
+            display: flex;
+            flex-direction: column;
+
+            color: #bcb5ff;
+            font-family: monospace;
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        .section {
+            padding: 100px 6%;
+        }
+
+        .about,
+        .experience {
+            background: var(--bg-light);
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-heading p {
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .section-heading h2 {
+            font-size: 42px;
+        }
+
+        .section-heading h2 span {
+            color: var(--primary);
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .text-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            color: var(--primary);
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 15px;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 25px 15px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .stat-card i {
+            color: var(--primary);
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .stat-card h3 {
+            font-size: 25px;
+        }
+
+        .stat-card p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-7px);
+            border-color: var(--primary);
+        }
+
+        .skill-card i {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects {
+            background: var(--bg-light);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+        }
+
+        .project-image {
+            height: 180px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #251d48,
+                    #151922
+                );
+        }
+
+        .project-two {
+            background:
+                linear-gradient(
+                    135deg,
+                    #173a4c,
+                    #151922
+                );
+        }
+
+        .project-three {
+            background:
+                linear-gradient(
+                    135deg,
+                    #30451e,
+                    #151922
+                );
+        }
+
+        .project-icon {
+            width: 70px;
+            height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(124,92,255,0.15);
+            color: var(--primary);
+
+            border-radius: 18px;
+            font-size: 30px;
+        }
+
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-number {
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .project-info h3 {
+            margin: 8px 0 12px;
+        }
+
+        .project-info p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-stack span {
+            background: rgba(124,92,255,0.1);
+            color: #bdb2ff;
+            padding: 5px 9px;
+            border-radius: 6px;
+            font-size: 11px;
+        }
+
+        .project-link {
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* =========================
+           EXPERIENCE
+        ========================= */
+
+        .timeline {
+            max-width: 800px;
+            margin: auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 45px;
+            margin-bottom: 40px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 3px;
+            top: 5px;
+
+            width: 16px;
+            height: 16px;
+
+            background: var(--primary);
+            border-radius: 50%;
+
+            box-shadow: 0 0 0 5px rgba(124,92,255,0.15);
+        }
+
+        .timeline-content {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .timeline-content > span {
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .timeline-content h3 {
+            margin: 8px 0 4px;
+        }
+
+        .timeline-content h4 {
+            color: var(--muted);
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .timeline-content p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info > p {
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 22px;
+        }
+
+        .contact-item > i {
+            color: var(--primary);
+            font-size: 20px;
+            margin-top: 4px;
+        }
+
+        .contact-item span {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .contact-item p {
+            font-size: 14px;
+        }
+
+        .contact-form {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 18px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 13px 15px;
+
+            background: #0c0f15;
+            color: white;
+
+            border: 1px solid var(--border);
+            border-radius: 9px;
+
+            outline: none;
+            resize: vertical;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: var(--primary);
+        }
+
+        .error-message {
+            display: none;
+            color: #ff6b6b;
+            font-size: 11px;
+            margin-top: 5px;
+        }
+
+        .form-success {
+            color: #65e6a7;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #07080b;
+            border-top: 1px solid var(--border);
+            padding: 30px 6%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-content p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social a {
+            color: var(--muted);
+            transition: 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: var(--primary);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media(max-width: 900px) {
+
+            .nav-links {
+                position: absolute;
+                top: 75px;
+                left: 5%;
+                right: 5%;
+
+                display: none;
+                flex-direction: column;
+
+                padding: 20px;
+
+                background: var(--card);
+                border: 1px solid var(--border);
+                border-radius: 15px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-buttons,
+            .social-links {
+                justify-content: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .about-content,
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+        }
+
+        @media(max-width: 600px) {
+
+            .navbar {
+                padding: 15px 5%;
+            }
+
+            .section {
+                padding: 75px 5%;
+            }
+
+            .hero {
+                padding: 130px 5% 70px;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .profile-card {
+                width: 280px;
+                height: 320px;
+            }
+
+            .skills-grid,
+            .projects-grid,
+            .about-stats,
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .section-heading h2 {
+                font-size: 34px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+    </style>
 </head>
+
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+    <!-- ================= NAVBAR ================= -->
 
-<header class="navbar">
+    <header class="navbar">
 
-```
-<div class="logo">
-    <span>&lt;</span>Smita<span>/&gt;</span>
-</div>
-
-<nav class="nav-links" id="nav-links">
-    <a href="#home" class="active">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<div class="nav-actions">
-
-    <button id="theme-toggle" aria-label="Toggle Theme">
-        <i class="fa-solid fa-moon" id="moon-icon"></i>
-        <i class="fa-solid fa-sun hidden" id="sun-icon"></i>
-    </button>
-
-    <button class="hamburger" id="hamburger" aria-label="Open Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-</div>
-```
-
-</header>
-
-<main>
-
-<!-- ================= HERO ================= -->
-
-<section id="home" class="hero">
-
-```
-<div class="hero-content">
-
-    <p class="hero-greeting">
-        👋 Hello, I'm
-    </p>
-
-    <h1>
-        Smita <span>Poudel</span>
-    </h1>
-
-    <h2>
-        Frontend Developer &amp; IT Student
-    </h2>
-
-    <p class="hero-description">
-        I create modern, responsive and user-friendly websites
-        using HTML, CSS, JavaScript and React. I enjoy turning
-        ideas into clean and interactive digital experiences.
-    </p>
-
-    <div class="hero-buttons">
-
-        <a href="#projects" class="btn btn-primary">
-            <i class="fa-solid fa-code"></i>
-            View My Work
+        <a href="#home" class="logo">
+            <span>&lt;</span>Smita<span>/&gt;</span>
         </a>
 
-        <a href="#contact" class="btn btn-secondary">
-            <i class="fa-regular fa-envelope"></i>
-            Contact Me
-        </a>
+        <nav class="nav-links" id="nav-links">
 
-    </div>
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
 
-    <div class="social-links">
+        </nav>
 
-        <a href="#" aria-label="GitHub">
-            <i class="fa-brands fa-github"></i>
-        </a>
+        <div class="nav-actions">
 
-        <a href="#" aria-label="LinkedIn">
-            <i class="fa-brands fa-linkedin-in"></i>
-        </a>
-
-        <a href="#" aria-label="Instagram">
-            <i class="fa-brands fa-instagram"></i>
-        </a>
-
-    </div>
-
-</div>
-
-
-<div class="hero-image">
-
-    <div class="profile-card">
-
-        <div class="profile-circle">
-            <i class="fa-solid fa-user"></i>
-        </div>
-
-        <div class="code-card">
-            <span>&lt;developer&gt;</span>
-            <span>creative();</span>
-            <span>build();</span>
-            <span>learn();</span>
-            <span>&lt;/developer&gt;</span>
-        </div>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- ================= ABOUT ================= -->
-
-<section id="about" class="section about">
-
-```
-<div class="container">
-
-    <div class="section-heading">
-
-        <p>GET TO KNOW ME</p>
-
-        <h2>About <span>Me</span></h2>
-
-    </div>
-
-    <div class="about-content">
-
-        <div class="about-text">
-
-            <h3>
-                Passionate about building meaningful
-                digital experiences.
-            </h3>
-
-            <p>
-                I am an IT student with a strong interest in
-                frontend development and modern web technologies.
-                I enjoy learning new technologies and applying
-                them to real-world projects.
-            </p>
-
-            <p>
-                My goal is to become a skilled full-stack developer
-                while continuously improving my problem-solving,
-                design and development skills.
-            </p>
-
-            <a href="#contact" class="text-link">
-                Let's work together
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-
-        </div>
-
-
-        <div class="about-stats">
-
-            <div class="stat-card">
-                <i class="fa-solid fa-code"></i>
-                <h3>10+</h3>
-                <p>Projects</p>
-            </div>
-
-            <div class="stat-card">
-                <i class="fa-solid fa-laptop-code"></i>
-                <h3>1+</h3>
-                <p>Year Learning</p>
-            </div>
-
-            <div class="stat-card">
-                <i class="fa-solid fa-layer-group"></i>
-                <h3>8+</h3>
-                <p>Technologies</p>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- ================= SKILLS ================= -->
-
-<section id="skills" class="section skills">
-
-```
-<div class="container">
-
-    <div class="section-heading">
-
-        <p>WHAT I WORK WITH</p>
-
-        <h2>My <span>Skills</span></h2>
-
-    </div>
-
-
-    <div class="skills-grid">
-
-        <div class="skill-card">
-            <i class="fa-brands fa-html5"></i>
-            <h3>HTML5</h3>
-            <p>Semantic &amp; accessible web structure</p>
-        </div>
-
-        <div class="skill-card">
-            <i class="fa-brands fa-css3-alt"></i>
-            <h3>CSS3</h3>
-            <p>Responsive and modern UI design</p>
-        </div>
-
-        <div class="skill-card">
-            <i class="fa-brands fa-js"></i>
-            <h3>JavaScript</h3>
-            <p>Interactive web functionality</p>
-        </div>
-
-        <div class="skill-card">
-            <i class="fa-brands fa-react"></i>
-            <h3>React</h3>
-            <p>Component-based frontend development</p>
-        </div>
-
-        <div class="skill-card">
-            <i class="fa-brands fa-git-alt"></i>
-            <h3>Git</h3>
-            <p>Version control and collaboration</p>
-        </div>
-
-        <div class="skill-card">
-            <i class="fa-brands fa-github"></i>
-            <h3>GitHub</h3>
-            <p>Code hosting and project management</p>
-        </div>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- ================= PROJECTS ================= -->
-
-<section id="projects" class="section projects">
-
-```
-<div class="container">
-
-    <div class="section-heading">
-
-        <p>MY RECENT WORK</p>
-
-        <h2>Featured <span>Projects</span></h2>
-
-    </div>
-
-
-    <div class="projects-grid">
-
-
-        <article class="project-card">
-
-            <div class="project-image project-one">
-
-                <div class="project-icon">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </div>
-
-            </div>
-
-            <div class="project-info">
-
-                <span class="project-number">01</span>
-
-                <h3>E-Commerce Platform</h3>
-
-                <p>
-                    A modern online shopping platform with
-                    product browsing, filtering and user-friendly
-                    interface.
-                </p>
-
-                <div class="tech-stack">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                </div>
-
-                <a href="#" class="project-link">
-                    View Project
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-
-            </div>
-
-        </article>
-
-
-        <article class="project-card">
-
-            <div class="project-image project-two">
-
-                <div class="project-icon">
-                    <i class="fa-solid fa-futbol"></i>
-                </div>
-
-            </div>
-
-            <div class="project-info">
-
-                <span class="project-number">02</span>
-
-                <h3>Futsal Booking System</h3>
-
-                <p>
-                    A booking platform that allows users to
-                    view futsal grounds, select time slots and
-                    manage bookings.
-                </p>
-
-                <div class="tech-stack">
-                    <span>React</span>
-                    <span>Django</span>
-                    <span>Tailwind</span>
-                </div>
-
-                <a href="#" class="project-link">
-                    View Project
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-
-            </div>
-
-        </article>
-
-
-        <article class="project-card">
-
-            <div class="project-image project-three">
-
-                <div class="project-icon">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                </div>
-
-            </div>
-
-            <div class="project-info">
-
-                <span class="project-number">03</span>
-
-                <h3>Student Learning Platform</h3>
-
-                <p>
-                    A responsive learning platform designed
-                    to help students explore courses and
-                    educational resources.
-                </p>
-
-                <div class="tech-stack">
-                    <span>React</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                </div>
-
-                <a href="#" class="project-link">
-                    View Project
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-
-            </div>
-
-        </article>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- ================= EXPERIENCE ================= -->
-
-<section id="experience" class="section experience">
-
-```
-<div class="container">
-
-    <div class="section-heading">
-
-        <p>MY JOURNEY</p>
-
-        <h2>Experience &amp; <span>Learning</span></h2>
-
-    </div>
-
-
-    <div class="timeline">
-
-        <div class="timeline-item">
-
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-content">
-
-                <span>2026</span>
-
-                <h3>Frontend Developer Intern</h3>
-
-                <h4>Technology Company</h4>
-
-                <p>
-                    Working on responsive web interfaces,
-                    React components and modern frontend
-                    development practices.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-content">
-
-                <span>2025 - Present</span>
-
-                <h3>BIT Student</h3>
-
-                <h4>Information Technology</h4>
-
-                <p>
-                    Developing knowledge in programming,
-                    databases, web development, software
-                    engineering and modern technologies.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- ================= CONTACT ================= -->
-
-<section id="contact" class="section contact">
-
-```
-<div class="container">
-
-    <div class="section-heading">
-
-        <p>HAVE A PROJECT IN MIND?</p>
-
-        <h2>Let's <span>Connect</span></h2>
-
-    </div>
-
-
-    <div class="contact-wrapper">
-
-
-        <div class="contact-info">
-
-            <h3>Let's talk!</h3>
-
-            <p>
-                Whether you have a project idea, internship
-                opportunity or simply want to connect,
-                feel free to send me a message.
-            </p>
-
-
-            <div class="contact-item">
-
-                <i class="fa-regular fa-envelope"></i>
-
-                <div>
-                    <span>Email</span>
-                    <p>your.email@example.com</p>
-                </div>
-
-            </div>
-
-
-            <div class="contact-item">
-
-                <i class="fa-solid fa-location-dot"></i>
-
-                <div>
-                    <span>Location</span>
-                    <p>Nepal</p>
-                </div>
-
-            </div>
-
-
-            <div class="contact-item">
-
-                <i class="fa-solid fa-code"></i>
-
-                <div>
-                    <span>Available For</span>
-                    <p>Projects &amp; Opportunities</p>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <form id="contact-form" class="contact-form" novalidate>
-
-            <div class="form-row">
-
-                <div class="form-group">
-
-                    <label for="name">Your Name</label>
-
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Enter your name"
-                        required
-                    >
-
-                    <span class="error-message" id="name-error">
-                        Please enter your name.
-                    </span>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="email">Your Email</label>
-
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Enter your email"
-                        required
-                    >
-
-                    <span class="error-message" id="email-error">
-                        Please enter a valid email.
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="message">Your Message</label>
-
-                <textarea
-                    id="message"
-                    name="message"
-                    rows="6"
-                    placeholder="Tell me about your project..."
-                    required
-                ></textarea>
-
-                <span class="error-message" id="message-error">
-                    Please enter your message.
-                </span>
-
-            </div>
-
-
-            <button type="submit" class="btn btn-primary">
-
-                Send Message
-
-                <i class="fa-solid fa-paper-plane"></i>
-
+            <button id="theme-toggle">
+                <i class="fa-solid fa-moon"></i>
             </button>
 
+            <button class="hamburger" id="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </button>
 
-            <div id="form-success" class="form-success hidden">
+        </div>
 
-                <i class="fa-solid fa-circle-check"></i>
+    </header>
 
-                Thank you! Your message has been sent successfully.
+
+    <main>
+
+        <!-- ================= HERO ================= -->
+
+        <section id="home" class="hero">
+
+            <div class="hero-content">
+
+                <p class="hero-greeting">
+                    👋 Hello, I'm
+                </p>
+
+                <h1>
+                    Smita <span>Poudel</span>
+                </h1>
+
+                <h2>
+                    Frontend Developer & IT Student
+                </h2>
+
+                <p class="hero-description">
+                    I create modern, responsive and user-friendly websites
+                    using HTML, CSS, JavaScript and React. I enjoy turning
+                    ideas into clean and interactive digital experiences.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fa-solid fa-code"></i>
+                        View My Work
+                    </a>
+
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fa-regular fa-envelope"></i>
+                        Contact Me
+                    </a>
+
+                </div>
+
+                <div class="social-links">
+
+                    <!-- Replace # with your real links -->
+
+                    <a href="#" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+
+                    <a href="#" target="_blank">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+
+                    <a href="#" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                </div>
 
             </div>
 
-        </form>
 
-    </div>
+            <div class="hero-image">
 
-</div>
-```
+                <div class="profile-card">
 
-</section>
+                    <div class="profile-circle">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
 
-</main>
+                    <div class="code-card">
 
-<!-- ================= FOOTER ================= -->
+                        <span>&lt;developer&gt;</span>
+                        <span>learn();</span>
+                        <span>create();</span>
+                        <span>build();</span>
+                        <span>&lt;/developer&gt;</span>
 
-<footer>
+                    </div>
 
-```
-<div class="container footer-content">
+                </div>
 
-    <div class="logo">
-        <span>&lt;</span>Smita<span>/&gt;</span>
-    </div>
+            </div>
 
-    <p>
-        © 2026 Smita Poudel. Built with ❤️ and code.
-    </p>
+        </section>
 
-    <div class="footer-social">
 
-        <a href="#">
-            <i class="fa-brands fa-github"></i>
-        </a>
+        <!-- ================= ABOUT ================= -->
 
-        <a href="#">
-            <i class="fa-brands fa-linkedin-in"></i>
-        </a>
+        <section id="about" class="section about">
 
-    </div>
+            <div class="container">
 
-</div>
-```
+                <div class="section-heading">
 
-</footer>
+                    <p>GET TO KNOW ME</p>
 
-<script src="script.js"></script>
+                    <h2>
+                        About <span>Me</span>
+                    </h2>
+
+                </div>
+
+
+                <div class="about-content">
+
+                    <div class="about-text">
+
+                        <h3>
+                            Passionate about building
+                            meaningful digital experiences.
+                        </h3>
+
+                        <p>
+                            I am an IT student with a strong interest in
+                            frontend development and modern web technologies.
+                            I enjoy learning new technologies and applying
+                            them to real-world projects.
+                        </p>
+
+                        <p>
+                            My goal is to become a skilled full-stack developer
+                            while continuously improving my problem-solving,
+                            design and development skills.
+                        </p>
+
+                        <a href="#contact" class="text-link">
+                            Let's work together
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+
+                    <div class="about-stats">
+
+                        <div class="stat-card">
+                            <i class="fa-solid fa-code"></i>
+                            <h3>10+</h3>
+                            <p>Projects</p>
+                        </div>
+
+                        <div class="stat-card">
+                            <i class="fa-solid fa-laptop-code"></i>
+                            <h3>1+</h3>
+                            <p>Year Learning</p>
+                        </div>
+
+                        <div class="stat-card">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <h3>8+</h3>
+                            <p>Technologies</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SKILLS ================= -->
+
+        <section id="skills" class="section skills">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p>WHAT I WORK WITH</p>
+
+                    <h2>
+                        My <span>Skills</span>
+                    </h2>
+
+                </div>
+
+
+                <div class="skills-grid">
+
+                    <div class="skill-card">
+                        <i class="fa-brands fa-html5"></i>
+                        <h3>HTML5</h3>
+                        <p>Semantic and accessible web structure</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <i class="fa-brands fa-css3-alt"></i>
+                        <h3>CSS3</h3>
+                        <p>Responsive and modern UI design</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <i class="fa-brands fa-js"></i>
+                        <h3>JavaScript</h3>
+                        <p>Interactive web functionality</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <i class="fa-brands fa-react"></i>
+                        <h3>React</h3>
+                        <p>Component-based frontend development</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <i class="fa-brands fa-git-alt"></i>
+                        <h3>Git</h3>
+                        <p>Version control and collaboration</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <i class="fa-brands fa-github"></i>
+                        <h3>GitHub</h3>
+                        <p>Code hosting and project management</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PROJECTS ================= -->
+
+        <section id="projects" class="section projects">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p>MY RECENT WORK</p>
+
+                    <h2>
+                        Featured <span>Projects</span>
+                    </h2>
+
+                </div>
+
+
+                <div class="projects-grid">
+
+
+                    <!-- PROJECT 1 -->
+
+                    <article class="project-card">
+
+                        <div class="project-image project-one">
+
+                            <div class="project-icon">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </div>
+
+                        </div>
+
+                        <div class="project-info">
+
+                            <span class="project-number">01</span>
+
+                            <h3>
+                                E-Commerce Platform
+                            </h3>
+
+                            <p>
+                                A modern online shopping interface with
+                                product browsing, filtering and a
+                                user-friendly design.
+                            </p>
+
+                            <div class="tech-stack">
+
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+
+                            </div>
+
+                            <a href="#" class="project-link">
+                                View Project
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PROJECT 2 -->
+
+                    <article class="project-card">
+
+                        <div class="project-image project-two">
+
+                            <div class="project-icon">
+                                <i class="fa-solid fa-futbol"></i>
+                            </div>
+
+                        </div>
+
+                        <div class="project-info">
+
+                            <span class="project-number">02</span>
+
+                            <h3>
+                                Futsal Booking System
+                            </h3>
+
+                            <p>
+                                A responsive booking interface where users
+                                can explore futsal grounds and select
+                                available time slots.
+                            </p>
+
+                            <div class="tech-stack">
+
+                                <span>React</span>
+                                <span>Tailwind</span>
+                                <span>JavaScript</span>
+
+                            </div>
+
+                            <a href="#" class="project-link">
+                                View Project
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PROJECT 3 -->
+
+                    <article class="project-card">
+
+                        <div class="project-image project-three">
+
+                            <div class="project-icon">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+
+                        </div>
+
+                        <div class="project-info">
+
+                            <span class="project-number">03</span>
+
+                            <h3>
+                                Student Learning Platform
+                            </h3>
+
+                            <p>
+                                A responsive learning platform designed
+                                to help students explore courses and
+                                educational resources.
+                            </p>
+
+                            <div class="tech-stack">
+
+                                <span>React</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+
+                            </div>
+
+                            <a href="#" class="project-link">
+                                View Project
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= EXPERIENCE ================= -->
+
+        <section id="experience" class="section experience">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p>MY JOURNEY</p>
+
+                    <h2>
+                        Experience & <span>Learning</span>
+                    </h2>
+
+                </div>
+
+
+                <div class="timeline">
+
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+
+                            <span>2026</span>
+
+                            <h3>
+                                Frontend Developer Intern
+                            </h3>
+
+                            <h4>
+                                Sitoula Tech Solution
+                            </h4>
+
+                            <p>
+                                Working on responsive web interfaces,
+                                React components and modern frontend
+                                development practices.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+
+                            <span>2025 - Present</span>
+
+                            <h3>
+                                BIT Student
+                            </h3>
+
+                            <h4>
+                                Information Technology
+                            </h4>
+
+                            <p>
+                                Developing knowledge in programming,
+                                databases, web development, software
+                                engineering and modern technologies.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <section id="contact" class="section contact">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p>HAVE A PROJECT IN MIND?</p>
+
+                    <h2>
+                        Let's <span>Connect</span>
+                    </h2>
+
+                </div>
+
+
+                <div class="contact-wrapper">
+
+
+                    <div class="contact-info">
+
+                        <h3>
+                            Let's talk!
+                        </h3>
+
+                        <p>
+                            Whether you have a project idea, internship
+                            opportunity or simply want to connect,
+                            feel free to send me a message.
+                        </p>
+
+
+                        <div class="contact-item">
+
+                            <i class="fa-regular fa-envelope"></i>
+
+                            <div>
+
+                                <span>Email</span>
+
+                                <p>
+                                    smita.poudel@example.com
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <div>
+
+                                <span>Location</span>
+
+                                <p>
+                                    Nepal
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <i class="fa-solid fa-code"></i>
+
+                            <div>
+
+                                <span>Available For</span>
+
+                                <p>
+                                    Projects & Opportunities
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <form id="contact-form" class="contact-form">
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+
+                                <label>
+                                    Your Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="name"
+                                    placeholder="Enter your name"
+                                >
+
+                                <span class="error-message" id="name-error">
+                                    Please enter your name.
+                                </span>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Your Email
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    placeholder="Enter your email"
+                                >
+
+                                <span class="error-message" id="email-error">
+                                    Please enter a valid email.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Your Message
+                            </label>
+
+                            <textarea
+                                id="message"
+                                rows="6"
+                                placeholder="Tell me about your project..."
+                            ></textarea>
+
+                            <span class="error-message" id="message-error">
+                                Please enter your message.
+                            </span>
+
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary">
+
+                            Send Message
+
+                            <i class="fa-solid fa-paper-plane"></i>
+
+                        </button>
+
+
+                        <div
+                            id="form-success"
+                            class="form-success"
+                            style="display:none;"
+                        >
+                            <i class="fa-solid fa-circle-check"></i>
+                            Thank you! Your message has been submitted.
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="container footer-content">
+
+            <div class="logo">
+                <span>&lt;</span>Smita<span>/&gt;</span>
+            </div>
+
+            <p>
+                © 2026 Smita Poudel.
+                Built with ❤️ and code.
+            </p>
+
+            <div class="footer-social">
+
+                <a href="#">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        // Mobile Menu
+
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("nav-links");
+
+        hamburger.addEventListener("click", () => {
+
+            navLinks.classList.toggle("show");
+
+        });
+
+
+        // Close mobile menu after clicking link
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("show");
+
+            });
+
+        });
+
+
+        // Theme button
+
+        const themeButton = document.getElementById("theme-toggle");
+
+        themeButton.addEventListener("click", () => {
+
+            document.body.classList.toggle("light-mode");
+
+            const icon = themeButton.querySelector("i");
+
+            if (document.body.classList.contains("light-mode")) {
+
+                icon.classList.remove("fa-moon");
+                icon.classList.add("fa-sun");
+
+                document.body.style.background = "#f5f5f7";
+                document.body.style.color = "#111";
+
+            } else {
+
+                icon.classList.remove("fa-sun");
+                icon.classList.add("fa-moon");
+
+                document.body.style.background = "#0b0d12";
+                document.body.style.color = "#fff";
+
+            }
+
+        });
+
+
+        // Contact Form
+
+        const form = document.getElementById("contact-form");
+
+        form.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const name = document.getElementById("name");
+            const email = document.getElementById("email");
+            const message = document.getElementById("message");
+
+            const nameError = document.getElementById("name-error");
+            const emailError = document.getElementById("email-error");
+            const messageError = document.getElementById("message-error");
+
+            const success = document.getElementById("form-success");
+
+            let valid = true;
+
+            nameError.style.display = "none";
+            emailError.style.display = "none";
+            messageError.style.display = "none";
+            success.style.display = "none";
+
+
+            if (name.value.trim() === "") {
+
+                nameError.style.display = "block";
+                valid = false;
+
+            }
+
+
+            const emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailPattern.test(email.value.trim())) {
+
+                emailError.style.display = "block";
+                valid = false;
+
+            }
+
+
+            if (message.value.trim() === "") {
+
+                messageError.style.display = "block";
+                valid = false;
+
+            }
+
+
+            if (valid) {
+
+                success.style.display = "block";
+
+                form.reset();
+
+            }
+
+        });
+
+
+        // Active navigation link
+
+        const sections =
+            document.querySelectorAll("section");
+
+        const links =
+            document.querySelectorAll(".nav-links a");
+
+        window.addEventListener("scroll", () => {
+
+            let current = "";
+
+            sections.forEach(section => {
+
+                const sectionTop =
+                    section.offsetTop - 150;
+
+                if (window.scrollY >= sectionTop) {
+
+                    current = section.getAttribute("id");
+
+                }
+
+            });
+
+
+            links.forEach(link => {
+
+                link.classList.remove("active");
+
+                if (link.getAttribute("href") === "#" + current) {
+
+                    link.classList.add("active");
+
+                }
+
+            });
+
+        });
+
+    </script>
 
 </body>
 </html>
+```
